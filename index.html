@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're Not Alone!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Click the button when you're sad!</h1>
+        <button onclick="showPatGif()">Click Kor!</button>
+        <img id="patGif" src="pat.gif" alt="Pat gif">
+        <p id="message"></p>
+
+        <!-- Button for showing Shorts -->
+        <button id="showShortsBtn" style="display: none;" onclick="showShorts()">ei shorts ta dek</button>
+
+        <!-- YouTube Shorts Video Embed -->
+        <div id="shortsContainer" style="display: none;">
+            <h2>Don Die</h2>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/2ixDAVR5RTM?autohide=1&modestbranding=1" 
+            frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <audio id="bgMusic">
+            <source src="pat.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
+    <script>
+        function showPatGif() {
+            // Show the gif
+            var gif = document.getElementById("patGif");
+            gif.style.display = "block";
+            
+            // Show the custom message
+            var message = document.getElementById("message");
+            message.innerText = "mon kharap korishna mama. shamne QT, por";
+
+            // Play the music
+            var bgMusic = document.getElementById("bgMusic");
+            bgMusic.play();
+
+            // Show the "ei shorts ta dek" button
+            var showShortsBtn = document.getElementById("showShortsBtn");
+            showShortsBtn.style.display = "block";
+        }
+
+        function showShorts() {
+            // Show the YouTube Shorts video
+            var shortsContainer = document.getElementById("shortsContainer");
+            shortsContainer.style.display = "block";
+
+            // Stop the background music
+            var bgMusic = document.getElementById("bgMusic");
+            bgMusic.pause();
+            bgMusic.currentTime = 0;  // Reset music to start position
+        }
+    </script>
+</body>
+</html>
